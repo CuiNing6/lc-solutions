@@ -1,2 +1,4 @@
 # lc-solutions
-practice
+
+This is my leetcode solution folder.
+Language:Java
