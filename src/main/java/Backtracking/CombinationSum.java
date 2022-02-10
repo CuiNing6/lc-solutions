@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by cuining8 on 1/24/2020. Given a set of candidate numbers (C) (without duplicates) and a
+ * Created by cuining8 on 1/24/2022. Given a set of candidate numbers (C) (without duplicates) and a
  * target number (T), find all unique combinations in C where the candidate numbers sums to T.
  *
  * <p>The same repeated number may be chosen from C unlimited number of times.
