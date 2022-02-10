@@ -1,5 +1,8 @@
 package Backtracking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by cuining8 on 02/10/2020. Given a string S, we can transform every letter
  * individually to be lowercase or uppercase to create another string. Return a list of all possible
@@ -16,4 +19,33 @@ package Backtracking;
  * <p>Solution: O(N x 2 ^ N) Backtrack and generate all possible combinations.
  */
 public class LetterCasePermutation {
+    public static void main(String[] args) {
+        String s = "a1b2";
+        LetterCasePermutation letterCasePermutation = new LetterCasePermutation();
+        List<String> res = letterCasePermutation.letterCasePermutation(s);
+        System.out.println(res);
+    }
+
+    public List<String> letterCasePermutation(String s) {
+        List<String> res = new ArrayList<>();
+        backtracking(s, res, 0, "");
+        return res;
+    }
+
+    public void backtracking(String s, List<String> list, int i, String r) {
+        if (s.length() == i) {
+            list.add(r);
+        } else {
+            if (Character.isAlphabetic(s.charAt(i))) {
+                backtracking(s, list, i+1, r+s.charAt(i));
+                if(Character.isLowerCase(s.charAt(i))) {
+                    backtracking(s,list,i+1, r+Character.toUpperCase(s.charAt(i)));
+                } else {
+                    backtracking(s,list,i+1, r+Character.toLowerCase(s.charAt(i)));
+                }
+            } else {
+                backtracking(s, list, i+1, r+s.charAt(i));
+            }
+        }
+    }
 }
