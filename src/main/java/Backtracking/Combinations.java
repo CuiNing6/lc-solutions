@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by cuining on 26/1/2022. Given two integers n and k, return all possible combinations of
+ * Created by cuining on 1/26/2022. Given two integers n and k, return all possible combinations of
  * k numbers out of 1 ... n.
  *
  * <p>For example, If n = 4 and k = 2, a solution is:
