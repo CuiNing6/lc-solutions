@@ -14,4 +14,20 @@ package Backtracking;
  * word = "SEE", -> returns true, word = "ABCB", -> returns false.
  */
 public class WordSearch {
+    public static void main(String[] args) {
+
+    }
+
+    public boolean wordSearch() {
+        boolean res = false;
+
+        return res;
+
+    }
+
+    public void backtracking() {
+
+    }
+
+
 }
