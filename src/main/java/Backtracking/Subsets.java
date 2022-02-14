@@ -1,6 +1,9 @@
 package Backtracking;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,10 +32,11 @@ public class Subsets {
     }
 
     public void backtracking (List<List<Integer>> res, int[] nums, int i, List<Integer> r) {
-        res.add(new ArrayList<Integer>(r));
+        res.add(new ArrayList<>(r));
+
         for (int j=i; j<nums.length; j++) {
             r.add(nums[j]);
-            backtracking(res, nums, i+1, r);
+            backtracking(res, nums, j+1, r);
             r.remove(r.size()-1);
         }
     }
