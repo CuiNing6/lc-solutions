@@ -16,4 +16,31 @@ package Backtracking;
  * not exceed 1000. Your output answer is guaranteed to be fitted in a 32-bit integer.
  */
 public class TargetSum {
+    private static int res;
+
+    public static void main(String[] args) {
+        int[] nums = {1,1,1,1,1};
+        int s = 3;
+        res = 0;
+        TargetSum targetSum = new TargetSum();
+        targetSum.targetSum(nums, s);
+        System.out.println(res);
+    }
+
+    public int targetSum(int[] nums, int s) {
+        int sum = 0;
+        backtracking(nums, s, sum, 0);
+        return res;
+    }
+
+    public void backtracking(int[] nums, int s, int sum, int n) {
+        if (n == nums.length) {
+            if (sum == s) {
+                res += 1;
+        }
+        } else {
+            backtracking(nums, s, sum+nums[n], n+1);
+            backtracking(nums, s, sum-nums[n], n+1);
+        }
+    }
 }
