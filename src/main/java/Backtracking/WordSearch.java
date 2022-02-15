@@ -24,7 +24,7 @@ public class WordSearch {
         String word = "ABCCED";
         String word0 = "ABCB";
         WordSearch wordSearch = new WordSearch();
-        boolean res = wordSearch.wordSearch(board, word0);
+        boolean res = wordSearch.wordSearch(board, word);
         System.out.println(res);
     }
 
@@ -41,7 +41,7 @@ public class WordSearch {
             for (int j = 0; j < M; j++) {
                 if (board[i][j] == word.charAt(0)) {
                     if (backtracking(board, word, i, j, 1)) return true;
-                    return false;
+                    visited[i][j] = false;
                 }
             }
         }
