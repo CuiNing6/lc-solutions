@@ -1,7 +1,7 @@
 package Array;
 
 /**
- * Created by cuining8 on 15/02/2022
+ * Created by cuining8 on 02/15/2022
  *
  * <p>For a non-negative integer X, the array-form of X is an array of its digits in left to right
  * order. For example, if X = 1231, then the array form is [1,2,3,1].
