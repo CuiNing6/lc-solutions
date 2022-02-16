@@ -1,5 +1,8 @@
 package Array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by cuining8 on 02/15/2022
  *
@@ -26,4 +29,39 @@ package Array;
  * <p>Solution: O(N) use BigInteger to add long numbers
  */
 public class AddToArrayFormOfInteger {
+    public static void main(String[] args) {
+        int[] nums = {2,1,5};
+        int K = 806;
+        AddToArrayFormOfInteger addToArrayFormOfInteger = new AddToArrayFormOfInteger();
+        List<Integer> res = addToArrayFormOfInteger.addToArrayFormOfInteger(nums, K);
+        System.out.println(res);
+    }
+
+
+    public List<Integer> addToArrayFormOfInteger(int[] nums, int K) {
+        List<Integer> res = new ArrayList<>();
+
+        int index = nums.length-1, carry = 0;
+
+        while (index >= 0 || carry == 1 || K > 0) {
+            int a = index < 0 ? 0 : nums[index--];
+            int b = K - (K / 10) * 10;
+
+            K = K / 10;
+
+            int s = a + b + carry;
+            carry = s/10;
+            res.add(0,s-carry*10);
+        }
+
+        return res;
+    }
+
+
+
+
+
+
+
+
 }
