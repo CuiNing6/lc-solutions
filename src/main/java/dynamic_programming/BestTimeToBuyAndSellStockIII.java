@@ -1,7 +1,7 @@
 package dynamic_programming;
 
 /**
- * Created by cuining8 on 02/18/2018. Say you have an array for which the ith element is
+ * Created by cuining8 on 02/18/2022. Say you have an array for which the ith element is
  * the price of a given stock on day i.
  *
  * <p>Design an algorithm to find the maximum profit. You may complete at most two transactions.
