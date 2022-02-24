@@ -5,4 +5,35 @@ package linked_list;
  * new list. The new list should be made by splicing together the nodes of the first two lists.
  */
 public class MergeTwoSortedList {
+    public static class ListNode {
+        int val;
+        int next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
