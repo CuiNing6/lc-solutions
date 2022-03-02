@@ -1,5 +1,7 @@
 package dynamic_programming;
 
+import sun.applet.AppletResourceLoader;
+
 /**
  * Created by cuining8 on 02/18/2022. Say you have an array for which the ith element is
  * the price of a given stock on day i.
@@ -16,16 +18,31 @@ package dynamic_programming;
  */
 public class BestTimeToBuyAndSellStocks {
     public static void main(String[] args) {
-
+        int[] profit = {7, 1, 5, 3, 6, 4};
+        int res = new BestTimeToBuyAndSellStocks().bestTimeToBuyAndSellStocks(profit);
+        System.out.println(res);
     }
 
-
-
     public int bestTimeToBuyAndSellStocks(int[] profit) {
-        int res = 0;
+        int minpro = profit[0];
 
+        int n = profit.length;
+        if (n<2) {
+            return 0;
+        }
 
-        return res;
+        int[] profile = new int[n];
+
+        for (int i = 1; i < n; i++) {
+            if (minpro > profit[i]) {
+                minpro = profit[i];
+                profile[i] = profile[i-1];
+            } else {
+                int tmp = profit[i] - minpro;
+                profile[i] = Math.max(tmp, profile[i - 1]);
+            }
+        }
+        return profile[n-1];
     }
 
 
