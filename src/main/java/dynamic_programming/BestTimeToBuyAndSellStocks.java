@@ -15,4 +15,30 @@ package dynamic_programming;
  * <p>In this case, no transaction is done, i.e. max profit = 0.
  */
 public class BestTimeToBuyAndSellStocks {
+    public static void main(String[] args) {
+
+    }
+
+
+
+    public int bestTimeToBuyAndSellStocks(int[] profit) {
+        int res = 0;
+
+
+        return res;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
