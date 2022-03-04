@@ -35,23 +35,4 @@ public class HouseRobber {
         result = Math.max(res[nums.length-1],res[nums.length-2]);
         return result;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
