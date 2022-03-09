@@ -14,4 +14,35 @@ package dynamic_programming;
  * <p>Input: prob = [0.5,0.5,0.5,0.5,0.5], target = 0 Output: 0.03125
  */
 public class TossStrangeCoins {
+    public static void main(String[] args) {
+        double[] prob = {0.5,0.5,0.5,0.5,0.5};
+        int target = 0;
+        double res = new TossStrangeCoins().tossStrangeCoins(prob, target);
+
+        System.out.println(res);
+    }
+
+
+    public double tossStrangeCoins(double[] prob, int target) {
+        int n = prob.length;
+        double[][] dp = new double[n][target+1];
+        dp[0][0] = 1-prob[0];
+        if (target >= 1) {
+            dp[0][1] = prob[0];
+        }
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j <= target; j++) {
+                if (j==0) {
+                    dp[i][j] = dp[i-1][0] * (1-prob[i]);
+                } else {
+                    dp[i][j] = dp[i-1][j] * (1-prob[i]) + dp[i-1][j-1] * prob[i];
+                }
+            }
+        }
+
+        return dp[n-1][target];
+
+    }
+
 }
