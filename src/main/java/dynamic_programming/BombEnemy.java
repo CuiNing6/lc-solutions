@@ -14,7 +14,53 @@ package dynamic_programming;
  *
  * <p>0 E 0 0 E 0 W E 0 E 0 0
  *
+ * ["0","E","0","0"]
+ * ["E","0","W","E"]
+ * ["0","E","0","0"]
+ *
  * <p>Placing a bomb at (1,1) kills 3 enemies.
  */
 public class BombEnemy {
+    public static void main(String[] args) {
+        char[][] bomb = {{'0','E','0','0'},{'E','0','W','E'},{'0','E','0','0'}};
+        BombEnemy bombEnemy = new BombEnemy();
+        int res = bombEnemy.bombEnemy(bomb);
+        System.out.println(res);
+    }
+
+    public int bombEnemy(char[][] bomb) {
+        int res = 0;
+
+        if (bomb == null || bomb.length == 0 || bomb[0].length == 0) {
+            return res;
+        }
+
+        int m = bomb.length;
+        int n = bomb[0].length;
+        int[] col = new int[n];
+        int row = 0;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i==0 || bomb[i-1][j] == 'W') {
+                    col[j] = 0;
+                    for (int k = i; k < m && bomb[k][j] != 'W'; k++) {
+                        col[j] = col[j] + (bomb[k][j] == 'E' ? 1:0);
+                    }
+                }
+
+                if (j==0 || bomb[i][j-1] == 'W') {
+                    row = 0;
+                    for (int k = j; k < n && bomb[i][k] != 'W'; k++) {
+                        row = row + (bomb[i][k] == 'E' ? 1:0);
+                    }
+                }
+
+                if (bomb[i][j] == '0') {
+                    res = Math.max(res, col[j] + row);
+                }
+            }
+        }
+        return res;
+    }
 }
