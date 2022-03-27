@@ -22,4 +22,23 @@ package dynamic_programming;
  * had purchased the stock at current price. Return max cash
  */
 public class BestTimeToBuyAndSellStocksWithFee {
+    public static void main(String[] args) {
+        int[] prices = {1, 3, 2, 8, 4, 9};
+        int fee = 2;
+        BestTimeToBuyAndSellStocksWithFee bestTimeToBuyAndSellStocksWithFee = new BestTimeToBuyAndSellStocksWithFee();
+        int res = bestTimeToBuyAndSellStocksWithFee.bestTimeToBuyAndSellStocksWithFee(prices, fee);
+        System.out.println(res);
+    }
+
+    public int bestTimeToBuyAndSellStocksWithFee (int[] prices, int fee) {
+        int cash = 0; int stock = -prices[0];
+
+        for (int i = 1; i < prices.length; i++) {
+            cash = Math.max(cash, prices[i]+stock-fee);
+            stock = Math.max(stock, cash - prices[i]);
+        }
+        return cash;
+    }
+
+
 }
